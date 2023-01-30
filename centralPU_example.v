@@ -25,7 +25,7 @@ module central_tb();
     
   initial begin
 			
-  	clk = 0'b0;
+    clk = 0'b0;
     //Set the duration of the simulation 
     #2500 $finish;
 
@@ -34,7 +34,11 @@ module central_tb();
   //Enable the clock and set half period
   always #10 clk = ~clk;
   
-  //Pass the program to be executed to the memory
+  //Pass the program to be executed to the memory.
+  //In this case we start with a value (here 5), if it is non negative
+  //it gets stored in Memory[16]. The starting value gets reduced by 1
+  //in each iteration and if the result is non negative it gets stored
+  //in Memory[16]. Once the value becomes negative the loop exits.
   initial begin
     
     DUT.mem0.internal_mem[0] = 12'b101000000101;
