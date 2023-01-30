@@ -1,6 +1,9 @@
 # 4bit opcode 8bit data cpu
 
-The following are the operations paired with their corresponding opcodes:
+This cpu reads the program stored in memory and executes its instructions. In the present 
+configuration it uses 4 bits for each operation code and 8 bits for storing data.
+
+## The following are the operations paired with their corresponding opcodes
 
  1) 0000 XXXXXXXX  : ACC keeps its value, no write to M[], PC increments by 1 
  2) 0001 XXX AAAAA : Load ACC M[AA]
@@ -19,3 +22,6 @@ The following are the operations paired with their corresponding opcodes:
 15) 1110 XXXX VVVV : Jump on negative ACC PC<--PC+VV
 16) 1111 XXXXXXXX  : Jump unconditional PC<--ACC
 
+Where AA signify an address value, VV a signed numeric value and XX a value not taken into consideration.
+The Accumulator(ACC) register is used for the majority of the operations, with the Program Counter(PC)
+enabling control flow and Memory(M[]) holding the program and any data we wish to store.
