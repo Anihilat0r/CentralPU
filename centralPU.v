@@ -10,7 +10,7 @@ module alu #(
     input [INSTR_SIZE-1:0] instr_reg
 );
 	
-	initial we_alu = 0;
+    initial we_alu = 0;
   
     always @(*) begin
 
