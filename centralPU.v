@@ -10,7 +10,7 @@ module alu #(
     input [INSTR_SIZE-1:0] instr_reg
 );
 	
-  	initial we_alu = 0;
+	initial we_alu = 0;
   
     always @(*) begin
 
@@ -81,12 +81,12 @@ module mem #(
     output reg [INSTR_SIZE-1:0] out_data,
     input [ADDR_SIZE-1:0] current_addr,
     input write_en,
-  	input execute,
+    input execute,
     input [DATA_SIZE-1:0] in_data,
     input clk
 );
 	
-  	reg [INSTR_SIZE-1:0] internal_mem [2**ADDR_SIZE-1:0];
+    reg [INSTR_SIZE-1:0] internal_mem [2**ADDR_SIZE-1:0];
 
     always @(posedge clk) begin
 
@@ -140,8 +140,8 @@ module central #(
         .out_data(from_mem_data),
         .current_addr(current_addr),
         .write_en(we_alu),
-      .execute(execute),
-      .in_data(accumulator),
+        .execute(execute),
+        .in_data(accumulator),
         .clk(clk)
     );
 
@@ -168,6 +168,7 @@ module central #(
     //When in "fetch" cycle this address is driven by the program counter
     //When in "execute" cycle the address is driven by the appropriate instruction register LSBs
     always @(*) begin
+	    
         if (fetch) 
             generated_addr = {f_b, progr_count[PROGRAM_ADDR_SIZE-1:0]};
         else if (execute)
@@ -196,18 +197,19 @@ module central #(
                 4'b1101 : begin
                     if (accumulator == 0) 
                         progr_count <= progr_count + $signed(instr_reg[PROGRAM_ADDR_SIZE:0]);
-                  else 
-                    progr_count <= progr_count + 1;
+                    else 
+                        progr_count <= progr_count + 1;
                 end
                 4'b1110 : begin
                     if (accumulator < 0) 
                         progr_count <= progr_count + $signed(instr_reg[PROGRAM_ADDR_SIZE:0]);
-                  else 
-                    progr_count <= progr_count + 1;
+                    else 
+                        progr_count <= progr_count + 1;
                 end
                 4'b1111 : progr_count <= {1'b0, accumulator[PROGRAM_ADDR_SIZE-1:0]};
                 default : progr_count <= progr_count + 1;
             endcase
+		
             fetch <= 1'b1;
             execute <= 1'b0; 
         end
