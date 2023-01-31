@@ -1,5 +1,7 @@
-//`timescale 1 ns/10 ps  // time-unit = 1 ns, precision = 10 ps
+//This is an example of how a program can be loaded into memory in order 
+//to be executed by the centralPU. 
 
+//`timescale 1 ns/10 ps  // time-unit = 1 ns, precision = 10 ps
 module central_ex();
 
   reg oob, clk;
