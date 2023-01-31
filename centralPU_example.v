@@ -1,6 +1,6 @@
 //`timescale 1 ns/10 ps  // time-unit = 1 ns, precision = 10 ps
 
-module central_tb();
+module central_ex();
 
   reg oob, clk;
 	
@@ -11,7 +11,7 @@ module central_tb();
   localparam A_S = 5;
   localparam P_S = 16;
  
-  //Instantiate the top level module of the design
+  //Instantiate the top level module of the centralPU design
   central #(
     .INSTR_SIZE(I_S),
     .DATA_SIZE(D_S), 
@@ -28,7 +28,6 @@ module central_tb();
     clk = 0'b0;
     //Set the duration of the simulation 
     #2500 $finish;
-
   end 
   
   //Enable the clock and set half period
