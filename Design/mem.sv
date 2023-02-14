@@ -11,15 +11,24 @@ module mem #(
     input [DATA_SIZE-1:0] in_data,
     input clk
 );
-	  parameter DATA_OVERHEAD = INSTR_SIZE - DATA_SIZE;
+    parameter DATA_OVERHEAD = INSTR_SIZE - DATA_SIZE;
     reg [DATA_OVERHEAD-1:0] d_o = 0;
     reg [INSTR_SIZE-1:0] internal_mem [2**ADDR_SIZE-1:0];  
-  
+
+    //The program can also be loaded using a memory initialization
+    //text file (values must be hexadecimal).
+    /*
+    initial begin
+        $display("Initializing memory from mem_init.txt");
+        $readmemh("mem_init.txt", internal_mem)
+    end
+    */
+
     always @(posedge clk) begin
 
         //Write to the memory address specified only on the execute cycle
         if (write_en & execute)
-          internal_mem[current_addr] [DATA_SIZE-1:0] <= {d_o, in_data};
+          internal_mem[current_addr] [INSTR_SIZE-1:0] <= {d_o, in_data};
     end
 
     assign out_data = internal_mem[current_addr];  
