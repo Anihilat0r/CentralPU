@@ -11,7 +11,7 @@ module mem #(
     input [DATA_SIZE-1:0] in_data,
     input clk
 );
-    parameter DATA_OVERHEAD = INSTR_SIZE - DATA_SIZE;
+    localparam DATA_OVERHEAD = INSTR_SIZE - DATA_SIZE;
     reg [DATA_OVERHEAD-1:0] d_o = 0;
     reg [INSTR_SIZE-1:0] internal_mem [2**ADDR_SIZE-1:0];  
 

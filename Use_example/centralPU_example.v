@@ -26,7 +26,13 @@ module central_ex();
     	.clk(clk)
   );
     
-  initial begin  
+  initial begin 
+		//Initialize design signals
+		DUT.alu0.we_alu = 0;
+		DUT.fetch = 1;
+        DUT.execute = 0;
+        DUT.progr_count = 0;
+
     	clk = 0'b0;
     	//Set the duration of the simulation 
     	#2500 $finish;

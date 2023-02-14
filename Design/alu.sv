@@ -9,8 +9,6 @@ module alu #(
     input signed [DATA_SIZE-1:0] accumulator,
     input [INSTR_SIZE-1:0] instr_reg
 );
-	
-    initial we_alu = 0;
   
     always @(*) begin
 
