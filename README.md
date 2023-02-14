@@ -22,10 +22,12 @@ configuration it uses 4 bits for each operation code and 8 bits for storing data
 15) 1110 XXXX VVVV : Jump on negative ACC PC<--PC+VV
 16) 1111 XXXXXXXX  : Jump unconditional PC<--ACC
 
-Where AA signify an address value, VV a signed numeric value and XX a value not taken into consideration.
+Where AA signifies an address value, VV a signed numeric value and XX a value not taken into consideration.
 The Accumulator(ACC) register is used for the majority of the operations, with the Program Counter(PC)
 enabling control flow and Memory(M[]) holding the program and any data we wish to store.
 
 ## Below is the basic block diagram of the cpu and memory
 
 ![Block diagram CPU](https://user-images.githubusercontent.com/87810236/215602274-c56973eb-c4b5-4f65-a20c-86d7ddcb4602.jpg)
+
+The "CentralPU_rtl.pdf" contains the RTL design created with Intel's Quartus Prime. 
