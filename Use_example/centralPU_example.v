@@ -27,9 +27,9 @@ module central_ex();
   );
     
   initial begin 
-		//Initialize design signals
-		DUT.alu0.we_alu = 0;
-		DUT.fetch = 1;
+	//Initialize design signals
+	DUT.alu0.we_alu = 0;
+	DUT.fetch = 1;
         DUT.execute = 0;
         DUT.progr_count = 0;
 
