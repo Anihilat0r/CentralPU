@@ -5,7 +5,7 @@ configuration it uses 4 bits for each operation code and 8 bits for storing data
 
 ## The following are the operations paired with their corresponding opcodes
 
- 1) 0000 XXXXXXXX  : ACC keeps its value, no write to M[], PC increments by 1 
+ 1) 0000 XXXXXXXX  : ACC keeps its value, no write to M[], PC increments by 1
  2) 0001 XXX AAAAA : Load ACC M[AA]
  3) 0010 XXX AAAAA : Add  ACC M[AA]
  4) 0011 XXX AAAAA : Subtract  ACC M[AA]
