@@ -10,7 +10,6 @@ module central #(
 ) (
     output reg out_of_bounds,
     input clk
-    //input [INSTR_SIZE-1:0] program_in [PROGRAM_SIZE-1:0]
 );
     //Number of bits needed to access program instructions
     localparam PROGRAM_ADDR_SIZE = $clog2(PROGRAM_SIZE);
