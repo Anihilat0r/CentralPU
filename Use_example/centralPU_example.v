@@ -33,7 +33,7 @@ module central_ex();
         DUT.execute = 0;
         DUT.progr_count = 0;
 
-    	clk = 0'b0;
+    	clk = 0;
     	//Set the duration of the simulation 
     	#2500 $finish;
   end 
